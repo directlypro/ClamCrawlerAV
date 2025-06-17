@@ -10,5 +10,8 @@ func HealthCheck(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 
 	log.Println("Health Check")
-	w.Write([]byte(`{"alive": true}`))
+	_, err := w.Write([]byte(`{"alive": true}`))
+	if err != nil {
+		return
+	}
 }
