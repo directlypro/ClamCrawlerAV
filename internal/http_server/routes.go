@@ -13,6 +13,7 @@ func NewServiceRouter() *mux.Router {
 	//Route Register
 	r.Handle("/", http.RedirectHandler("/", http.StatusFound))
 	r.HandleFunc("/ccav", ccav.HealthCheck).Methods("GET")
+	r.HandleFunc("/ccav/{id}", ccav.).Methods("GET")
 
 	log.Println("API v1 routes registered")
 	return r
