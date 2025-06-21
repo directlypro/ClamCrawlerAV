@@ -24,7 +24,7 @@ func FileUploadHandler(w http.ResponseWriter, r *http.Request) {
 	//1. Parameter input for multipart form file
 	r.ParseMultipartForm(200 << 20)
 
-	//2. Retrieve file from form-data.
+	//2. Retrieve file from form-data
 	file, _, err := r.FormFile("file")
 	fileName := r.FormValue("filename")
 	if err != nil {
